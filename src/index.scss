@@ -1,0 +1,8 @@
+@import './normalize.css';
+@import './variables.scss';
+
+body,
+html {
+  font-family: 'Roboto Mono', monospace;
+  color: $base-color;
+}
