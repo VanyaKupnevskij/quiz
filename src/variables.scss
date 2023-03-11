@@ -1,1 +1,28 @@
-$base-color: #61aad4;
+$back-color: #162023;
+$gray-color: #273032;
+$border-color: #2f3739;
+$white-color: #f2f2f2;
+$blue-color: #0e81b4;
+$green-color: #27ae60;
+$red-color: #eb5757;
+$orange-color: #f2954d;
+
+$base-box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.25);
+$base-box-shadow--hover: 0px 3px 7px rgba(0, 0, 0, 0.25);
+
+$base-border-radius: 16px;
+
+$base-font: 'Inter', sans-serif;
+$second-font: 'Poppins', sans-serif;
+
+@mixin button-click-animation {
+  transition: all 0.1s ease-in-out;
+  &:hover {
+    box-shadow: $base-box-shadow--hover;
+    transform: translateY(1px);
+  }
+  &:active {
+    box-shadow: none;
+    transform: translateY(2px);
+  }
+}

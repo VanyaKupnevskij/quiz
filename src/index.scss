@@ -3,6 +3,25 @@
 
 body,
 html {
-  font-family: 'Roboto Mono', monospace;
-  color: $base-color;
+  background-color: #202323;
+  font-weight: 400;
+  font-size: 14px;
+  font-family: $base-font;
+}
+
+a {
+  text-decoration: none;
+}
+
+* {
+  line-height: 140%;
+  color: $white-color;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+
+  margin-top: 30px;
 }
