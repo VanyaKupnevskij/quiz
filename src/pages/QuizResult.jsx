@@ -1,4 +1,12 @@
+import { FullWidthButton } from '../components/Button/Button';
+
 import { Link } from 'react-router-dom';
+
+import againImg from '../images/again.svg';
+
+function handleOnClick() {
+  alert('click button/link');
+}
 
 function QuizResult() {
   return (
@@ -12,6 +20,13 @@ function QuizResult() {
         <div className="inner">
           <h1>Hello all</h1>
           <h2>Subtitle</h2>
+          <FullWidthButton isLink linkPath="/quiz/page" handleClick={handleOnClick}>
+            Check Answers
+          </FullWidthButton>
+          <FullWidthButton isLink linkPath="/quiz/page" handleClick={handleOnClick}>
+            <img src={againImg} alt={'again'} />
+            Try Quiz Again
+          </FullWidthButton>
           <p>sdlru woiu j sejh iw efjoisue io hsrg e</p>
           <p>sdlru woiu j sejh iw </p>
           <p>sdlru se ef uiweufiefjoisue io hsrg e</p>
