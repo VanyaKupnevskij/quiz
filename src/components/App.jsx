@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
-import QuizStart from './pages/QuizStart';
-import QuizPage from './pages/QuizPage';
-import QuizResult from './pages/QuizResult';
+import QuizStart from '../pages/QuizStart';
+import QuizPage from '../pages/QuizPage';
+import QuizResult from '../pages/QuizResult';
 
 function App() {
   return (
