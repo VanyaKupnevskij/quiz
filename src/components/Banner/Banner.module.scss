@@ -1,0 +1,39 @@
+@import '../../index.scss';
+
+.root {
+  font-family: $base-font;
+  margin-top: 15px;
+  border: 1px solid $blue-color;
+  border-radius: $base-border-radius;
+
+  .title {
+    position: relative;
+    padding: 18px;
+    display: flex;
+    min-height: calc(154px - 36px);
+    align-items: center;
+    border-radius: $base-border-radius - 1;
+    background-color: $blue-color;
+    overflow: hidden;
+    z-index: 2;
+
+    h2 {
+      max-width: 50%;
+      font-size: 20px;
+    }
+
+    img {
+      position: absolute;
+      right: 0px;
+      top: 0px;
+    }
+  }
+
+  .category {
+    padding: 10px 16px;
+
+    .subtitle + .subtitle {
+      margin-top: 7px;
+    }
+  }
+}

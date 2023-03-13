@@ -6,7 +6,10 @@
   box-shadow: $base-box-shadow;
   @include button-click-animation;
   border: none;
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
   padding: 12px 21px;
   text-align: center;
   font-family: $second-font;

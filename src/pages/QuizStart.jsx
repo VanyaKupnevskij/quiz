@@ -1,9 +1,11 @@
 import Button from '../components/Button/Button';
 import Header from '../components/Header/Header';
+import Banner from '../components/Banner/Banner';
 
 import styled from 'styled-components';
 import { COLORS, BASE_FONT } from '../variablesJs';
 import againImg from '../images/again.svg';
+import bannerImg from '../images/imageBanner1.png';
 
 const GrayButton = styled(Button)`
   background-color: ${COLORS.gray};
@@ -53,21 +55,22 @@ function QuizStart() {
           <FullWidthButton isLink linkPath="/quiz/page" handleClick={handleOnClick}>
             Start Quiz
           </FullWidthButton>
-          <br />
           <Button handleClick={handleOnClick}>Go</Button>
-          <br />
+          <Banner
+            title={'Pair of Linear Equation in Two Variables'}
+            imageSrc={bannerImg}
+            subject={'Maths'}
+            chapter={'Real Numbers'}
+          />
           <FullWidthButton isLink linkPath="/quiz/page">
             Check Answers
           </FullWidthButton>
-          <br />
           <AgainButton isLink linkPath="/quiz/page">
             <img src={againImg} alt="again" />
             Try Quiz Again
           </AgainButton>
-          <br />
           <GrayButton>Previous</GrayButton>
           <Button>Next</Button>
-          <br />
 
           <p>sdlru se ef uiweufiefjoisue io hsrg e</p>
         </div>
