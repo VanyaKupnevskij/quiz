@@ -1,4 +1,6 @@
 import Button from '../components/Button/Button';
+import Header from '../components/Header/Header';
+
 import styled from 'styled-components';
 import { COLORS, BASE_FONT } from '../variablesJs';
 import againImg from '../images/again.svg';
@@ -37,9 +39,11 @@ function handleOnClick() {
 function QuizStart() {
   return (
     <>
-      <header>
-        <h1>_ Start _</h1>
-      </header>
+      <Header title={'Start Quiz'}>
+        <SubmitButton isLink linkPath="/quiz/result">
+          Submit
+        </SubmitButton>
+      </Header>
       <section className="main">
         <div className="inner">
           <h1>Hello all</h1>
@@ -64,9 +68,7 @@ function QuizStart() {
           <GrayButton>Previous</GrayButton>
           <Button>Next</Button>
           <br />
-          <SubmitButton isLink linkPath="/quiz/result">
-            Submit
-          </SubmitButton>
+
           <p>sdlru se ef uiweufiefjoisue io hsrg e</p>
         </div>
       </section>

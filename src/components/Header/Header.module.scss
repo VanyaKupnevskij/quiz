@@ -1,0 +1,32 @@
+@import '../../index.scss';
+
+.header {
+  margin: 50px 32px 0px 32px;
+  display: flex;
+}
+
+.back_link {
+  background-color: $back-color;
+  box-shadow: $base-box-shadow;
+  border: 1px solid $border-color;
+  border-radius: 8px;
+  display: flex;
+
+  & img {
+    margin: 15px 19px;
+  }
+
+  @include button-click-animation;
+}
+
+.title {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  color: $white-color;
+  margin: 10px 16px;
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+}
