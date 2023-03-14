@@ -1,5 +1,9 @@
 import Header from '../components/Header/Header';
 import Button, { SubmitButton, GrayButton } from '../components/Button/Button';
+import Question from '../components/Question/Question';
+
+import styles from './QuizPage.module.scss';
+import timerImg from '../images/timer.svg';
 
 function handleOnClick() {
   alert('click button/link');
@@ -8,26 +12,52 @@ function handleOnClick() {
 function QuizStart() {
   return (
     <>
-      <header>
-        <Header title={'Start Quiz'}>
-          <SubmitButton isLink linkPath="/quiz/result">
-            Submit
-          </SubmitButton>
-        </Header>
-      </header>
+      <Header title={'Quiz'}>
+        <SubmitButton isLink linkPath="/quiz/result">
+          Submit
+        </SubmitButton>
+      </Header>
       <section className="main">
-        <div className="inner">
-          <h1>Hello all</h1>
-          <h2>Subtitle</h2>
+        <AdditionalInfo />
 
-          <GrayButton handleClick={handleOnClick}>Previous</GrayButton>
-          <Button handleClick={handleOnClick}>Next</Button>
-          <p>sdlru woiu j sejh iw efjoisue io hsrg e</p>
-          <p>sdlru woiu j sejh iw </p>
-          <p>sdlru se ef uiweufiefjoisue io hsrg e</p>
+        <div className={styles.content}>
+          <div className="inner">
+            <Question />
+          </div>
+
+          <Navigate />
         </div>
       </section>
     </>
+  );
+}
+
+function AdditionalInfo() {
+  return (
+    <div className={styles.additional_info}>
+      <h2 className={styles.title}>Pair of Linear Equation in Two Variables</h2>
+      <div className={styles.top_info}>
+        <div className={styles.category}>
+          <span className={styles.subtitle}>Maths</span>
+          {' / '}
+          <span className={styles.subtitle}>Real Numbers</span>
+        </div>
+        <div className={styles.timer}>
+          <img src={timerImg} alt="timer" />
+          <span className={styles.time}>07:28</span>
+        </div>
+      </div>
+      <div className={styles.line_timer}></div>
+    </div>
+  );
+}
+
+function Navigate() {
+  return (
+    <div className={styles.navigate}>
+      <GrayButton handleClick={handleOnClick}>Previous</GrayButton>
+      <Button handleClick={handleOnClick}>Next</Button>
+    </div>
   );
 }
 

@@ -1,0 +1,69 @@
+@import '../../index.scss';
+
+.numeric_question {
+  .current {
+    font-weight: 600;
+    font-size: 20px;
+  }
+  .total {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+  }
+}
+
+.question {
+  padding-top: 12px;
+  font-weight: 600;
+  font-size: 17px;
+}
+
+.answers {
+  padding-top: 24px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 21px;
+  list-style: none;
+
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(2, 1fr);
+
+  .variant {
+    padding: 14px 20px;
+    background-color: $gray-color;
+    border-radius: $base-border-radius;
+
+    transition: all 0.2s;
+    &:hover {
+      background-color: rgba($gray-color, 0.85);
+    }
+
+    &.checked {
+      background-color: $blue-color;
+    }
+    &.truly {
+      background-color: $green-color;
+    }
+    &.wrong {
+      background-color: $red-color;
+    }
+  }
+
+  .mark {
+    font-weight: 700;
+    padding-right: 12px;
+  }
+
+  .text {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+  }
+}
+
+@media (max-width: 620px) {
+  .answers {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
