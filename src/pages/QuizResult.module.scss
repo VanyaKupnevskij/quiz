@@ -1,1 +1,259 @@
-@import '../index.scss';
+@import '../variables.scss';
+
+.content {
+  display: flex;
+  flex-direction: column;
+  font-family: $second-font;
+  margin-top: 22px;
+  flex-grow: 1;
+  padding: 0 16px;
+
+  .inner_result {
+    padding: 0 16px 16px 16px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      'A A'
+      'B B'
+      'C D'
+      'E F'
+      'V V'
+      'R R';
+    gap: 19px;
+
+    &::-webkit-scrollbar-thumb {
+      background-color: rgba($back-color, 0.65);
+    }
+  }
+
+  .info_quiz {
+    grid-area: A;
+    border-radius: $base-border-radius;
+    background-color: $back-color;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: $base-font;
+    padding: 16px 20px;
+    border: 1px solid $border-color;
+    box-shadow: $base-box-shadow;
+
+    h2 {
+      font-weight: 400;
+      font-size: 16px;
+    }
+
+    .category {
+      padding-top: 7px;
+
+      font-weight: 400;
+      font-size: 13px;
+      opacity: 0.5;
+    }
+  }
+
+  .score {
+    grid-area: B;
+    background-color: $back-color;
+    border-radius: $base-border-radius;
+    border: 1px solid $border-color;
+    box-shadow: $base-box-shadow;
+
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .indicator {
+      position: relative;
+
+      svg {
+        display: inline-flex;
+        vertical-align: bottom;
+        width: 110px;
+        height: 110px;
+      }
+      circle {
+        stroke: rgba($blue-color, 0.2);
+        stroke-width: 8px;
+        stroke-dasharray: 0;
+        fill: none;
+      }
+      .fill_circle {
+        stroke-width: 8px;
+        stroke-dashoffset: calc(282.783px - 220px);
+        stroke: $blue-color;
+        fill: none;
+        transition: stroke-dashoffset 1s cubic-bezier(0.43, 0.41, 0.22, 0.91);
+        transform-origin: center center;
+        transform: rotate(-90deg) scaleX(-1) scaleY(-1);
+      }
+
+      .value {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-end;
+        justify-content: center;
+
+        .current {
+          font-weight: 600;
+          font-size: 27px;
+          line-height: 25px;
+        }
+        .line {
+          font-weight: 400;
+          font-size: 13px;
+          line-height: 18px;
+          padding: 0 2px;
+        }
+        .total {
+          font-weight: 400;
+          font-size: 13px;
+          line-height: 14px;
+        }
+      }
+      .caption {
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 18px;
+        white-space: nowrap;
+      }
+    }
+
+    p {
+      font-family: $base-font;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 160%;
+      margin-left: 23px;
+
+      .blue {
+        color: #0e81b4;
+      }
+      .green {
+        color: #6fcf97;
+      }
+    }
+  }
+
+  .correct_answers {
+    grid-area: C;
+    border-radius: $base-border-radius;
+    background-color: $green-color;
+    box-shadow: $base-box-shadow;
+    padding: 12px 16px;
+
+    .number {
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 30px;
+    }
+
+    .description {
+      font-weight: 500;
+      font-size: 13px;
+      line-height: 20px;
+    }
+  }
+
+  .wrong_answers {
+    grid-area: D;
+    border-radius: $base-border-radius;
+    background-color: $red-color;
+    box-shadow: $base-box-shadow;
+    padding: 12px 16px;
+
+    .number {
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 30px;
+    }
+
+    .description {
+      font-weight: 500;
+      font-size: 13px;
+      line-height: 20px;
+    }
+  }
+
+  .total_time {
+    grid-area: E;
+    border-radius: $base-border-radius;
+    background-color: $blue-color;
+    box-shadow: $base-box-shadow;
+    padding: 12px 16px;
+
+    img {
+      padding: 5px 0;
+    }
+
+    .number {
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    .description {
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 18px;
+    }
+  }
+
+  .avg_time_answer {
+    grid-area: F;
+    border-radius: $base-border-radius;
+    background-color: $orange-color;
+    box-shadow: $base-box-shadow;
+    padding: 12px 16px;
+
+    img {
+      padding: 5px 0;
+    }
+
+    .number {
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    .description {
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 18px;
+    }
+  }
+
+  .check_answers {
+    grid-area: V;
+  }
+
+  .try_again {
+    grid-area: R;
+  }
+}
+
+// Next block
+.next_block {
+  font-family: $second-font;
+  border-radius: 40px;
+  background-color: $back-color;
+  padding: 20px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .chapter {
+    font-weight: 500;
+    font-size: 15px;
+
+    .head {
+      font-weight: 600;
+    }
+  }
+}
