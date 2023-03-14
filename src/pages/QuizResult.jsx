@@ -73,19 +73,15 @@ function ScoreBlock() {
   return (
     <div className={styles.score}>
       <div className={styles.indicator}>
-        <svg
-          viewBox="0 0 100 100"
-          xmlns="http://www.w3.org/2000/svg"
-          preserveAspectRatio="none"
-          data-value="75">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
           <circle r="45" cx="50" cy="50" />
           <path
             className={styles.fill_circle}
             d="M5,50a45,45 0 1,0 90,0a45,45 0 1,0 -90,0"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-dashoffset="282.78302001953125"
-            stroke-dasharray="282.78302001953125"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeDashoffset="282.78302001953125"
+            strokeDasharray="282.78302001953125"
           />
         </svg>
         <div className={styles.value}>

@@ -5,10 +5,10 @@ import backImg from '../../images/back.svg';
 function Header({ backLink = '/quiz', title, children }) {
   return (
     <header className={styles.header}>
-      <Link to={backLink} class={styles.back_link}>
+      <Link to={backLink} className={styles.back_link}>
         <img src={backImg} alt="back" />
       </Link>
-      <h1 class={styles.title}>{title}</h1>
+      <h1 className={styles.title}>{title}</h1>
       {children}
     </header>
   );
