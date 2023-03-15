@@ -5,12 +5,19 @@ import Banner from '../components/Banner/Banner';
 import styles from './QuizStart.module.scss';
 import bannerImg from '../images/imageBanner1.png';
 import timerImg from '../images/timer.svg';
+import { useSelector } from 'react-redux';
+import { selectInfoQuiz } from '../redux/slices/currentQuizSlice';
+import { useEffect } from 'react';
 
 function handleOnClick() {
   alert('click button/link');
 }
 
 function QuizStart() {
+  const currentQuiz = useSelector(selectInfoQuiz);
+
+  useEffect(() => {}, []);
+
   return (
     <>
       <Header title={'Start Quiz'} />
@@ -19,39 +26,28 @@ function QuizStart() {
           <div className="inner">
             <p>Put your understanding of this concept to test by answering a few MCQs.</p>
             <Banner
-              title={'Pair of Linear Equation in Two Variables'}
+              title={currentQuiz?.title}
               imageSrc={bannerImg}
-              subject={'Maths'}
-              chapter={'Real Numbers'}
+              subject={currentQuiz?.subject}
+              chapter={currentQuiz?.chapter}
             />
             <div className={styles.detail_info}>
               <div className={styles.total_questions}>
-                Total Questions: <b>05</b>
+                Total Questions: <b>{currentQuiz?.questions?.length}</b>
               </div>
               <div className={styles.total_time}>
-                Total Time: <b>15 min</b>
+                Total Time: <b>{currentQuiz?.totalTime} min</b>
               </div>
-              <p>
-                The quizzes consists of questions carefully designed to help you self-assess your
-                comprehension of the information presented on the topics covered in the module.
-              </p>
-              <p>
-                After responding to a question, click on the "Next Question" button at the bottom to
-                go to the next questino. After responding to the 8th question, click on "Close" on
-                the top of the window to exit the quiz.
-              </p>
-              <p>
-                If you select an incorrect response for a question, you can try again until you get
-                the correct response. If you retake the quiz, the questions and their respective
-                responses will be randomized.
-              </p>
+              {currentQuiz?.description.map((text) => (
+                <p key={text}>{text}</p>
+              ))}
             </div>
           </div>
         </div>
         <div className={styles.start_block}>
           <div className={styles.limit_time}>
             <img src={timerImg} alt="timer" />
-            <span>15:00</span>
+            <span>{currentQuiz?.totalTime}:00</span>
           </div>
           <FullWidthButton isLink linkPath="/quiz/page" handleClick={handleOnClick}>
             Start Quiz

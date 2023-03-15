@@ -3,7 +3,15 @@ import QuizStart from '../pages/QuizStart';
 import QuizPage from '../pages/QuizPage';
 import QuizResult from '../pages/QuizResult';
 
+import { Quizes } from '../DBQuiz';
+import { useDispatch } from 'react-redux';
+import { setQuiz } from '../redux/slices/currentQuizSlice';
+
 function App() {
+  const dispatch = useDispatch();
+
+  dispatch(setQuiz(Quizes));
+
   return (
     <div className="container">
       <Routes>

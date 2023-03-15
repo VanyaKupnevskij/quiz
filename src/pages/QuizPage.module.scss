@@ -42,8 +42,7 @@
     background-color: $back-color;
     margin-top: 10px;
 
-    &::before {
-      content: '';
+    .progress {
       position: absolute;
       width: 60%;
       height: 100%;

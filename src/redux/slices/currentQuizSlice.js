@@ -1,7 +1,27 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  idQuiz: 0,
+  infoQuiz: {
+    title: 'Title',
+    pathImage: '/',
+    subject: '-',
+    chapter: '-',
+    totalTime: '10',
+    description: '-',
+    questions: [
+      {
+        text: 'Question?',
+        variants: [
+          {
+            text: 'Variant 1',
+          },
+          {
+            text: 'Variant 2',
+          },
+        ],
+      },
+    ],
+  },
   answers: [
     {
       time: 0,
@@ -15,7 +35,7 @@ const currentQuizSlice = createSlice({
   initialState,
   reducers: {
     setQuiz(state, action) {
-      state.idQuiz = action.payload;
+      state.infoQuiz = action.payload;
     },
     setAnswers(state, action) {
       state.answers = action.payload;
@@ -27,5 +47,5 @@ const currentQuizSlice = createSlice({
 });
 
 export const { setQuiz, setAnswers, addAnswer } = currentQuizSlice.actions;
-
+export const selectInfoQuiz = (state) => state.currentQuiz.infoQuiz[0];
 export default currentQuizSlice.reducer;

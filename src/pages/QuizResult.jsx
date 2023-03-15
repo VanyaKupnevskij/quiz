@@ -6,6 +6,8 @@ import styles from './QuizResult.module.scss';
 import againImg from '../images/again.svg';
 import timerAvgImg from '../images/timer_avg.svg';
 import timerTotalImg from '../images/timer_total.svg';
+import { useSelector } from 'react-redux';
+import { selectInfoQuiz } from '../redux/slices/currentQuizSlice';
 
 function handleOnClick() {
   alert('click button/link');
@@ -57,19 +59,23 @@ function QuizResult() {
 }
 
 function InfoQuiz() {
+  const currentQuiz = useSelector(selectInfoQuiz);
+
   return (
     <div className={styles.info_quiz}>
-      <h2>Pair of Linear Equation in Two Variables</h2>
+      <h2>{currentQuiz.title}</h2>
       <div className={styles.category}>
-        <span className={styles.subtitle}>Maths</span>
+        <span className={styles.subtitle}>{currentQuiz.subject}</span>
         {' / '}
-        <span className={styles.subtitle}>Real Numbers</span>
+        <span className={styles.subtitle}>{currentQuiz.chapter}</span>
       </div>
     </div>
   );
 }
 
 function ScoreBlock() {
+  const currentQuiz = useSelector(selectInfoQuiz);
+
   return (
     <div className={styles.score}>
       <div className={styles.indicator}>
@@ -87,7 +93,7 @@ function ScoreBlock() {
         <div className={styles.value}>
           <span className={styles.current}>4</span>
           <span className={styles.line}>/</span>
-          <span className={styles.total}>5</span>
+          <span className={styles.total}>{currentQuiz.questions.length}</span>
           <span className={styles.caption}>your score</span>
         </div>
       </div>
