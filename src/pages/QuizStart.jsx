@@ -16,7 +16,10 @@ function handleOnClick() {
 function QuizStart() {
   const currentQuiz = useSelector(selectInfoQuiz);
 
-  useEffect(() => {}, []);
+  const _totalTime =
+    currentQuiz.totalTime.substring(currentQuiz.totalTime.length - 2) === '00'
+      ? currentQuiz.totalTime.substring(0, currentQuiz.totalTime.length - 3)
+      : currentQuiz.totalTime;
 
   return (
     <>
@@ -36,7 +39,7 @@ function QuizStart() {
                 Total Questions: <b>{currentQuiz?.questions?.length}</b>
               </div>
               <div className={styles.total_time}>
-                Total Time: <b>{currentQuiz?.totalTime} min</b>
+                Total Time: <b>{_totalTime} min</b>
               </div>
               {currentQuiz?.description.map((text) => (
                 <p key={text}>{text}</p>
@@ -47,7 +50,7 @@ function QuizStart() {
         <div className={styles.start_block}>
           <div className={styles.limit_time}>
             <img src={timerImg} alt="timer" />
-            <span>{currentQuiz?.totalTime}:00</span>
+            <span>{currentQuiz?.totalTime}</span>
           </div>
           <FullWidthButton isLink linkPath="/quiz/page" handleClick={handleOnClick}>
             Start Quiz

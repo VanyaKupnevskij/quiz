@@ -10,7 +10,7 @@ import { setQuiz } from '../redux/slices/currentQuizSlice';
 function App() {
   const dispatch = useDispatch();
 
-  dispatch(setQuiz(Quizes));
+  dispatch(setQuiz(Quizes[0]));
 
   return (
     <div className="container">

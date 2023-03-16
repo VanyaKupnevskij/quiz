@@ -11,6 +11,7 @@ const initialState = {
     questions: [
       {
         text: 'Question?',
+        correct: 0,
         variants: [
           {
             text: 'Variant 1',
@@ -22,12 +23,7 @@ const initialState = {
       },
     ],
   },
-  answers: [
-    {
-      time: 0,
-      selectedIndex: null,
-    },
-  ],
+  answers: [],
 };
 
 const currentQuizSlice = createSlice({
@@ -47,5 +43,6 @@ const currentQuizSlice = createSlice({
 });
 
 export const { setQuiz, setAnswers, addAnswer } = currentQuizSlice.actions;
-export const selectInfoQuiz = (state) => state.currentQuiz.infoQuiz[0];
+export const selectInfoQuiz = (state) => state.currentQuiz.infoQuiz;
+export const selectAnswers = (state) => state.currentQuiz.answers;
 export default currentQuizSlice.reducer;

@@ -4,7 +4,7 @@ export const Quizes = [
     pathImage: 'images/imageBanner1.png',
     subject: 'Maths',
     chapter: 'Real Numbers',
-    totalTime: '15',
+    totalTime: '10:05',
     description: [
       'The quizzes consists of questions carefully designed to help you self-assess your comprehension of the information presented on the topics covered in the module.',
       'After responding to a question, click on the "Next Question" button at the bottom to go to the next questino. After responding to the 8th question, click on "Close" on the top of the window to exit the quiz.',
@@ -13,6 +13,7 @@ export const Quizes = [
     questions: [
       {
         text: 'Graphically, the pair of equations 7x – y = 5; 21x – 3y = 10 represents two lines which are',
+        correct: 2,
         variants: [
           {
             text: 'Intersect at one point',
@@ -30,6 +31,7 @@ export const Quizes = [
       },
       {
         text: '2222 Graphically, the pair of equations 7x – y = 5; 21x – 3y = 10 represents two lines which are',
+        correct: 0,
         variants: [
           {
             text: 'Intersect at two point',

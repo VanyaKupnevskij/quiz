@@ -7,13 +7,40 @@ import againImg from '../images/again.svg';
 import timerAvgImg from '../images/timer_avg.svg';
 import timerTotalImg from '../images/timer_total.svg';
 import { useSelector } from 'react-redux';
-import { selectInfoQuiz } from '../redux/slices/currentQuizSlice';
+import { selectAnswers, selectInfoQuiz } from '../redux/slices/currentQuizSlice';
 
 function handleOnClick() {
-  alert('click button/link');
+  alert('click go to next chapter');
 }
 
 function QuizResult() {
+  const currentQuiz = useSelector(selectInfoQuiz);
+  const answers = useSelector(selectAnswers);
+
+  let correctAnswers = 0;
+  let wrongAnswer = 0;
+  let answerTotalTime = 0;
+  for (let i = 0; i < answers.length; i++) {
+    if (answers[i].selectedIndex === currentQuiz.questions[i].correct) correctAnswers++;
+    else wrongAnswer++;
+
+    answerTotalTime += answers[i].time;
+  }
+
+  const formatedTimeTotal = toFormatedTime(answerTotalTime);
+  const formatedTimeAvg = toFormatedTime(answerTotalTime / (answers.length || 1));
+
+  function toFormatedTime(number) {
+    const minutes = Math.floor(number / 60);
+    const seconds = number % 60;
+    return (
+      (minutes < 10 ? '0' + minutes : minutes) +
+      'm ' +
+      (seconds < 10 ? '0' + seconds : seconds) +
+      'sec'
+    );
+  }
+
   return (
     <>
       <Header title={'Quiz Result'} />
@@ -23,24 +50,24 @@ function QuizResult() {
           <div className={classNames([styles.inner_result, 'inner'])}>
             <InfoQuiz />
 
-            <ScoreBlock />
+            <ScoreBlock correctAnswers={correctAnswers} />
 
             <div className={styles.correct_answers}>
-              <div className={styles.number}>4</div>
+              <div className={styles.number}>{correctAnswers ?? 0}</div>
               <div className={styles.description}>Correct Answers</div>
             </div>
             <div className={styles.wrong_answers}>
-              <div className={styles.number}>5</div>
+              <div className={styles.number}>{wrongAnswer ?? 0}</div>
               <div className={styles.description}>Wrong Answesrs</div>
             </div>
             <div className={styles.total_time}>
               <img src={timerTotalImg} alt="timer" />
-              <div className={styles.number}>12m 20sec</div>
+              <div className={styles.number}>{formatedTimeTotal}</div>
               <div className={styles.description}>Total Time</div>
             </div>
             <div className={styles.avg_time_answer}>
               <img src={timerAvgImg} alt="timer" />
-              <div className={styles.number}>2m 28sec</div>
+              <div className={styles.number}>{formatedTimeAvg}</div>
               <div className={styles.description}>Avg. Time / Answer</div>
             </div>
             <FullWidthButton isLink linkPath="/quiz/page" className={styles.check_answers}>
@@ -73,8 +100,9 @@ function InfoQuiz() {
   );
 }
 
-function ScoreBlock() {
+function ScoreBlock({ correctAnswers }) {
   const currentQuiz = useSelector(selectInfoQuiz);
+  const passedPercent = (100 / currentQuiz.questions.length) * correctAnswers;
 
   return (
     <div className={styles.score}>
@@ -91,7 +119,7 @@ function ScoreBlock() {
           />
         </svg>
         <div className={styles.value}>
-          <span className={styles.current}>4</span>
+          <span className={styles.current}>{correctAnswers ?? 0}</span>
           <span className={styles.line}>/</span>
           <span className={styles.total}>{currentQuiz.questions.length}</span>
           <span className={styles.caption}>your score</span>
@@ -99,7 +127,7 @@ function ScoreBlock() {
       </div>
       <p>
         Congratulations! You have <span className={styles.green}>passed</span> this test with
-        <span className={styles.blue}>{' 80%.'}</span>
+        <span className={styles.blue}>{` ${passedPercent}%.`}</span>
       </p>
     </div>
   );
