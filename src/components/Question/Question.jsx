@@ -2,25 +2,20 @@ import styles from './Question.module.scss';
 import cn from 'classnames';
 import { useDispatch, useSelector } from 'react-redux';
 import { setAnswers, selectAnswers, selectInfoQuiz } from '../../redux/slices/currentQuizSlice';
-import { useEffect } from 'react';
 
-function Question({ questionId = 0, setQuestionId }) {
+function Question({ questionId = 0 }) {
   const currentQuiz = useSelector(selectInfoQuiz);
   const answers = useSelector(selectAnswers);
   const dispatch = useDispatch();
 
-  useEffect(() => {}, []);
-
   const handleOnSelect = (id) => {
-    let newAnswers = new Array();
+    let newAnswers = new Array(0);
     Object.assign(newAnswers, answers);
     newAnswers[questionId] = {
       time: 15,
       selectedIndex: id,
     };
     dispatch(setAnswers(newAnswers));
-
-    setQuestionId((prev) => (prev < currentQuiz.questions.length - 1 ? prev + 1 : prev));
   };
 
   return (
@@ -36,7 +31,7 @@ function Question({ questionId = 0, setQuestionId }) {
             key={id}
             className={cn([
               styles.variant,
-              answers[questionId]?.selectedIndex == id ? styles.checked : '',
+              answers[questionId]?.selectedIndex === id ? styles.checked : '',
             ])}
             onClick={() => handleOnSelect(id)}>
             <span className={styles.mark}>{String.fromCharCode(65 + id)}.</span>

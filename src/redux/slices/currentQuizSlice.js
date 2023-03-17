@@ -39,10 +39,13 @@ const currentQuizSlice = createSlice({
     addAnswer(state, action) {
       state.answers.push(action.payload);
     },
+    clearAnswers(state, actoin) {
+      state.answers = new Array(0);
+    },
   },
 });
 
-export const { setQuiz, setAnswers, addAnswer } = currentQuizSlice.actions;
+export const { setQuiz, setAnswers, addAnswer, clearAnswers } = currentQuizSlice.actions;
 export const selectInfoQuiz = (state) => state.currentQuiz.infoQuiz;
 export const selectAnswers = (state) => state.currentQuiz.answers;
 export default currentQuizSlice.reducer;

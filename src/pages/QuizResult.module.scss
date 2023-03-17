@@ -82,7 +82,7 @@
       }
       .fill_circle {
         stroke-width: 8px;
-        stroke-dashoffset: calc(282.783px - 220px);
+        // stroke-dashoffset: calc(282.783px - 220px);
         stroke: $blue-color;
         fill: none;
         transition: stroke-dashoffset 1s cubic-bezier(0.43, 0.41, 0.22, 0.91);

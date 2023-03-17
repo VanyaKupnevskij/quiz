@@ -6,8 +6,8 @@ import styles from './QuizResult.module.scss';
 import againImg from '../images/again.svg';
 import timerAvgImg from '../images/timer_avg.svg';
 import timerTotalImg from '../images/timer_total.svg';
-import { useSelector } from 'react-redux';
-import { selectAnswers, selectInfoQuiz } from '../redux/slices/currentQuizSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectAnswers, selectInfoQuiz, clearAnswers } from '../redux/slices/currentQuizSlice';
 
 function handleOnClick() {
   alert('click go to next chapter');
@@ -16,6 +16,7 @@ function handleOnClick() {
 function QuizResult() {
   const currentQuiz = useSelector(selectInfoQuiz);
   const answers = useSelector(selectAnswers);
+  const dispatch = useDispatch();
 
   let correctAnswers = 0;
   let wrongAnswer = 0;
@@ -39,6 +40,10 @@ function QuizResult() {
       (seconds < 10 ? '0' + seconds : seconds) +
       'sec'
     );
+  }
+
+  function handleOnAgain() {
+    dispatch(clearAnswers());
   }
 
   return (
@@ -73,7 +78,11 @@ function QuizResult() {
             <FullWidthButton isLink linkPath="/quiz/page" className={styles.check_answers}>
               Check Answers
             </FullWidthButton>
-            <FullWidthButton isLink linkPath="/quiz/page" className={styles.try_again}>
+            <FullWidthButton
+              isLink
+              linkPath="/quiz/page"
+              className={styles.try_again}
+              handleClick={handleOnAgain}>
               <img src={againImg} alt="again" /> Try Quiz Again
             </FullWidthButton>
           </div>
@@ -103,6 +112,7 @@ function InfoQuiz() {
 function ScoreBlock({ correctAnswers }) {
   const currentQuiz = useSelector(selectInfoQuiz);
   const passedPercent = (100 / currentQuiz.questions.length) * correctAnswers;
+  const dashoffset = 282.78302001953125 - 282.78302001953125 * (passedPercent / 100);
 
   return (
     <div className={styles.score}>
@@ -114,7 +124,7 @@ function ScoreBlock({ correctAnswers }) {
             d="M5,50a45,45 0 1,0 90,0a45,45 0 1,0 -90,0"
             strokeLinecap="round"
             strokeLinejoin="round"
-            strokeDashoffset="282.78302001953125"
+            strokeDashoffset={dashoffset}
             strokeDasharray="282.78302001953125"
           />
         </svg>
