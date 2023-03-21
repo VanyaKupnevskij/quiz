@@ -1,8 +1,8 @@
-import Button, { GrayButton } from '../../components/Button/Button';
+import Button, { GrayButton } from '../../../components/Button/Button';
 
 import styles from './Navigate.module.scss';
 import { useSelector } from 'react-redux';
-import { selectAnswers, selectInfoQuiz } from '../../redux/slices/currentQuizSlice';
+import { selectAnswers, selectInfoQuiz } from '../../../redux/slices/currentQuizSlice';
 
 function Navigate({ questionId = 0, setQuestionId }) {
   const currentQuiz = useSelector(selectInfoQuiz);

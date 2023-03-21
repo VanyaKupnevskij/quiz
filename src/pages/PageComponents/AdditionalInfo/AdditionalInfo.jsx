@@ -1,8 +1,8 @@
 import classNames from 'classnames';
 import styles from './AdditionalInfo.module.scss';
-import timerImg from '../../images/timer.svg';
+import timerImg from '../../../images/timer.svg';
 import { useSelector } from 'react-redux';
-import { selectInfoQuiz } from '../../redux/slices/currentQuizSlice';
+import { selectInfoQuiz } from '../../../redux/slices/currentQuizSlice';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 

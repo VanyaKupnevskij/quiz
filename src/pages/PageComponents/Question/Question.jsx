@@ -1,7 +1,7 @@
 import styles from './Question.module.scss';
 import cn from 'classnames';
 import { useDispatch, useSelector } from 'react-redux';
-import { setAnswers, selectAnswers, selectInfoQuiz } from '../../redux/slices/currentQuizSlice';
+import { setAnswers, selectAnswers, selectInfoQuiz } from '../../../redux/slices/currentQuizSlice';
 
 function Question({ questionId = 0 }) {
   const currentQuiz = useSelector(selectInfoQuiz);

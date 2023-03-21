@@ -1,8 +1,8 @@
 import Header from '../components/Header/Header';
 import { SubmitButton } from '../components/Button/Button';
-import Question from '../components/Question/Question';
-import Navigate from './PageComponents/Navigate';
-import AdditionalInfo from './PageComponents/AdditionalInfo';
+import Question from './PageComponents/Question/Question';
+import Navigate from './PageComponents/Navigate/Navigate';
+import AdditionalInfo from './PageComponents/AdditionalInfo/AdditionalInfo';
 
 import styles from './QuizPage.module.scss';
 import { useState } from 'react';
