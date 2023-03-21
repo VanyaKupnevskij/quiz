@@ -27,6 +27,7 @@ body {
 }
 
 .container {
+  width: 750px;
   max-width: 750px;
   margin: 0 32px;
 
@@ -71,5 +72,11 @@ body {
 @media (max-width: 620px) {
   .container {
     margin: 0 10px;
+  }
+}
+
+@media (max-width: 820px) {
+  .container {
+    width: unset;
   }
 }

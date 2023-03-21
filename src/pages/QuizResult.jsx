@@ -137,7 +137,7 @@ function ScoreBlock({ correctAnswers }) {
       </div>
       <p>
         Congratulations! You have <span className={styles.green}>passed</span> this test with
-        <span className={styles.blue}>{` ${passedPercent}%.`}</span>
+        <span className={styles.blue}>{` ${Math.floor(passedPercent)}%.`}</span>
       </p>
     </div>
   );

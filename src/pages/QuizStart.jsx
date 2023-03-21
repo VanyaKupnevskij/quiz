@@ -7,11 +7,6 @@ import bannerImg from '../images/imageBanner1.png';
 import timerImg from '../images/timer.svg';
 import { useSelector } from 'react-redux';
 import { selectInfoQuiz } from '../redux/slices/currentQuizSlice';
-import { useEffect } from 'react';
-
-function handleOnClick() {
-  alert('click button/link');
-}
 
 function QuizStart() {
   const currentQuiz = useSelector(selectInfoQuiz);
@@ -52,7 +47,7 @@ function QuizStart() {
             <img src={timerImg} alt="timer" />
             <span>{currentQuiz?.totalTime}</span>
           </div>
-          <FullWidthButton isLink linkPath="/quiz/page" handleClick={handleOnClick}>
+          <FullWidthButton isLink linkPath="/quiz/page">
             Start Quiz
           </FullWidthButton>
         </div>

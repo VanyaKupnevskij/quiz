@@ -4,7 +4,7 @@ export const Quizes = [
     pathImage: 'images/imageBanner1.png',
     subject: 'Maths',
     chapter: 'Real Numbers',
-    totalTime: '10:05',
+    totalTime: '1:05',
     description: [
       'The quizzes consists of questions carefully designed to help you self-assess your comprehension of the information presented on the topics covered in the module.',
       'After responding to a question, click on the "Next Question" button at the bottom to go to the next questino. After responding to the 8th question, click on "Close" on the top of the window to exit the quiz.',
@@ -44,6 +44,24 @@ export const Quizes = [
           },
           {
             text: 'Coincident',
+          },
+        ],
+      },
+      {
+        text: '333 Graphically, lines which are the pair of equations 7x – y = 5; ',
+        correct: 3,
+        variants: [
+          {
+            text: 'Point',
+          },
+          {
+            text: 'Intersect at one point',
+          },
+          {
+            text: 'Parallel',
+          },
+          {
+            text: 'Somthing',
           },
         ],
       },
