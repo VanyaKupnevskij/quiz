@@ -51,7 +51,7 @@ function stringToSeconds(time = '00:00') {
 
 function secondsToFormated(time = 0) {
   const minutes = Math.floor(time / 60);
-  const seconds = time % 60;
+  const seconds = Math.floor(time % 60);
   const formatedTime =
     (minutes < 10 ? '0' + minutes : minutes) + ':' + (seconds < 10 ? '0' + seconds : seconds);
   return formatedTime;
