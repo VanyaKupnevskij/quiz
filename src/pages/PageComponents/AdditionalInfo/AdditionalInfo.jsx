@@ -10,15 +10,10 @@ function AdditionalInfo() {
   const navigate = useNavigate();
   const currentQuiz = useSelector(selectInfoQuiz);
 
-  const _totalTime =
-    +currentQuiz.totalTime.substring(0, currentQuiz.totalTime.length - 3) * 60 +
-    +currentQuiz.totalTime.substring(currentQuiz.totalTime.length - 2);
+  const _totalTime = stringToSeconds(currentQuiz.totalTime);
   const [limitTimer, setLimitTimer] = useState(_totalTime);
 
-  const minutes = Math.floor(limitTimer / 60);
-  const seconds = limitTimer % 60;
-  const formatedTime =
-    (minutes < 10 ? '0' + minutes : minutes) + ':' + (seconds < 10 ? '0' + seconds : seconds);
+  const formatedTime = secondsToFormated(limitTimer);
 
   const percentTime = (100 / _totalTime) * limitTimer;
 
@@ -48,6 +43,18 @@ function AdditionalInfo() {
       </div>
     </div>
   );
+}
+
+function stringToSeconds(time = '00:00') {
+  return +time.substring(0, time.length - 3) * 60 + +time.substring(time.length - 2);
+}
+
+function secondsToFormated(time = 0) {
+  const minutes = Math.floor(time / 60);
+  const seconds = time % 60;
+  const formatedTime =
+    (minutes < 10 ? '0' + minutes : minutes) + ':' + (seconds < 10 ? '0' + seconds : seconds);
+  return formatedTime;
 }
 
 export default AdditionalInfo;
