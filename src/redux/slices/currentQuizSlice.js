@@ -23,6 +23,7 @@ const initialState = {
       },
     ],
   },
+  isComplete: false,
   answers: [],
 };
 
@@ -36,8 +37,8 @@ const currentQuizSlice = createSlice({
     setAnswers(state, action) {
       state.answers = action.payload;
     },
-    addAnswer(state, action) {
-      state.answers.push(action.payload);
+    setComplete(state, action) {
+      state.isComplete = action.payload;
     },
     clearAnswers(state, actoin) {
       state.answers = new Array(0);
@@ -45,7 +46,8 @@ const currentQuizSlice = createSlice({
   },
 });
 
-export const { setQuiz, setAnswers, addAnswer, clearAnswers } = currentQuizSlice.actions;
+export const { setQuiz, setAnswers, setComplete, clearAnswers } = currentQuizSlice.actions;
 export const selectInfoQuiz = (state) => state.currentQuiz.infoQuiz;
 export const selectAnswers = (state) => state.currentQuiz.answers;
+export const selectIsComplete = (state) => state.currentQuiz.isComplete;
 export default currentQuizSlice.reducer;

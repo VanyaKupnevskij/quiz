@@ -2,13 +2,14 @@ import classNames from 'classnames';
 import styles from './AdditionalInfo.module.scss';
 import timerImg from '../../../images/timer.svg';
 import { useSelector } from 'react-redux';
-import { selectInfoQuiz } from '../../../redux/slices/currentQuizSlice';
+import { selectInfoQuiz, selectIsComplete } from '../../../redux/slices/currentQuizSlice';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function AdditionalInfo() {
   const navigate = useNavigate();
   const currentQuiz = useSelector(selectInfoQuiz);
+  const isCompleteQuiz = useSelector(selectIsComplete);
 
   const _totalTime = stringToSeconds(currentQuiz.totalTime);
   const [limitTimer, setLimitTimer] = useState(_totalTime);
@@ -18,6 +19,8 @@ function AdditionalInfo() {
   const percentTime = (100 / _totalTime) * limitTimer;
 
   useEffect(() => {
+    if (isCompleteQuiz) return;
+
     limitTimer > 0 && setTimeout(() => setLimitTimer(limitTimer - 1), 1000);
     if (limitTimer <= 0) navigate('/quiz/result');
   }, [limitTimer]);
@@ -31,16 +34,20 @@ function AdditionalInfo() {
           {' / '}
           <span className={styles.subtitle}>{currentQuiz?.chapter}</span>
         </div>
-        <div className={styles.timer}>
-          <img src={timerImg} alt="timer" />
-          <span className={styles.time}>{formatedTime}</span>
+        {isCompleteQuiz || (
+          <div className={styles.timer}>
+            <img src={timerImg} alt="timer" />
+            <span className={styles.time}>{formatedTime}</span>
+          </div>
+        )}
+      </div>
+      {isCompleteQuiz || (
+        <div className={styles.line_timer}>
+          <div
+            className={classNames([styles.progress, percentTime <= 20 && styles.warning_line])}
+            style={{ width: percentTime + '%' }}></div>
         </div>
-      </div>
-      <div className={styles.line_timer}>
-        <div
-          className={classNames([styles.progress, percentTime <= 20 && styles.warning_line])}
-          style={{ width: percentTime + '%' }}></div>
-      </div>
+      )}
     </div>
   );
 }

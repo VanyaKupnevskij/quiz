@@ -2,19 +2,29 @@ import styles from './Question.module.scss';
 import cn from 'classnames';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setAnswers, selectAnswers, selectInfoQuiz } from '../../../redux/slices/currentQuizSlice';
+import {
+  setAnswers,
+  selectAnswers,
+  selectInfoQuiz,
+  setComplete,
+  selectIsComplete,
+} from '../../../redux/slices/currentQuizSlice';
 import { useNavigate } from 'react-router-dom';
 
 let oldQuestionId = 0;
 function Question({ questionId = 0, isSubmit = false }) {
   const currentQuiz = useSelector(selectInfoQuiz);
   const answers = useSelector(selectAnswers);
+  const isCompleteQuiz = useSelector(selectIsComplete);
   const dispatch = useDispatch();
 
   const navigate = useNavigate();
   const [timer, setTimer] = useState(0);
 
   useEffect(() => {
+    console.log(isCompleteQuiz);
+    if (isCompleteQuiz) return;
+
     oldQuestionId = questionId;
 
     const intervalId = setInterval(() => {
@@ -36,11 +46,13 @@ function Question({ questionId = 0, isSubmit = false }) {
   useEffect(() => {
     if (isSubmit) {
       recordTime();
+      dispatch(setComplete(true));
       navigate('/quiz/result');
     }
   }, [isSubmit]);
 
   function recordTime() {
+    if (isCompleteQuiz) return;
     if (answers[oldQuestionId] === undefined) return;
 
     let newAnswers = new Array(0);
@@ -53,6 +65,8 @@ function Question({ questionId = 0, isSubmit = false }) {
   }
 
   const handleOnSelect = (id) => {
+    if (isCompleteQuiz) return;
+
     let newAnswers = new Array(0);
     Object.assign(newAnswers, answers);
     newAnswers[questionId] = {
@@ -70,18 +84,31 @@ function Question({ questionId = 0, isSubmit = false }) {
       </div>
       <p className={styles.question}>{currentQuiz.questions[questionId].text}</p>
       <ol className={styles.answers}>
-        {currentQuiz.questions[questionId].variants.map((varaint, id) => (
-          <li
-            key={id}
-            className={cn([
-              styles.variant,
-              answers[questionId]?.selectedIndex === id ? styles.checked : '',
-            ])}
-            onClick={() => handleOnSelect(id)}>
-            <span className={styles.mark}>{String.fromCharCode(65 + id)}.</span>
-            <span className={styles.text}>{varaint.text}</span>
-          </li>
-        ))}
+        {currentQuiz.questions[questionId].variants.map((varaint, id) => {
+          let markStyle = '';
+
+          if (isCompleteQuiz) {
+            if (
+              answers[questionId]?.selectedIndex !== currentQuiz.questions[questionId].correct &&
+              answers[questionId]?.selectedIndex === id
+            )
+              markStyle = styles.wrong;
+
+            if (id === currentQuiz.questions[questionId].correct) markStyle = styles.truly;
+          } else {
+            if (answers[questionId]?.selectedIndex === id) markStyle = styles.checked;
+          }
+
+          return (
+            <li
+              key={id}
+              className={cn([styles.variant, markStyle])}
+              onClick={() => handleOnSelect(id)}>
+              <span className={styles.mark}>{String.fromCharCode(65 + id)}.</span>
+              <span className={styles.text}>{varaint.text}</span>
+            </li>
+          );
+        })}
       </ol>
     </>
   );
