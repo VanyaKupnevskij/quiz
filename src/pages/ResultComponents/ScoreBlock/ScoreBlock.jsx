@@ -1,11 +1,23 @@
 import styles from './ScoreBlock.module.scss';
 import { useSelector } from 'react-redux';
 import { selectInfoQuiz } from '../../../redux/slices/currentQuizSlice';
+import { useEffect, useState } from 'react';
+
+const LENGTH_DASH = 282.78302001953125;
+const START_DELAY_LINE = 500; // ms
 
 function ScoreBlock({ correctAnswers }) {
   const currentQuiz = useSelector(selectInfoQuiz);
+
   const passedPercent = (100 / currentQuiz.questions.length) * correctAnswers;
-  const dashoffset = 282.78302001953125 - 282.78302001953125 * (passedPercent / 100);
+  const [dashoffset, setDashoffset] = useState(LENGTH_DASH); // minimum line (0%)
+
+  useEffect(() => {
+    setTimeout(
+      () => setDashoffset(LENGTH_DASH - LENGTH_DASH * (passedPercent / 100)),
+      START_DELAY_LINE,
+    );
+  }, []);
 
   return (
     <div className={styles.root}>
@@ -18,7 +30,7 @@ function ScoreBlock({ correctAnswers }) {
             strokeLinecap="round"
             strokeLinejoin="round"
             strokeDashoffset={dashoffset}
-            strokeDasharray="282.78302001953125"
+            strokeDasharray={LENGTH_DASH}
           />
         </svg>
         <div className={styles.value}>
