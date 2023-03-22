@@ -13,12 +13,12 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-areas:
-      'A A'
-      'B B'
-      'C D'
-      'E F'
-      'V V'
-      'R R';
+      'Info Info'
+      'Score Score'
+      'Correct Wrong'
+      'Total Avg'
+      'Check Check'
+      'Again Again';
     gap: 19px;
 
     &::-webkit-scrollbar-thumb {
@@ -26,100 +26,12 @@
     }
   }
 
-  .correct_answers {
-    grid-area: C;
-    border-radius: $base-border-radius;
-    background-color: $green-color;
-    box-shadow: $base-box-shadow;
-    padding: 12px 16px;
-
-    .number {
-      font-weight: 600;
-      font-size: 20px;
-      line-height: 30px;
-    }
-
-    .description {
-      font-weight: 500;
-      font-size: 13px;
-      line-height: 20px;
-    }
-  }
-
-  .wrong_answers {
-    grid-area: D;
-    border-radius: $base-border-radius;
-    background-color: $red-color;
-    box-shadow: $base-box-shadow;
-    padding: 12px 16px;
-
-    .number {
-      font-weight: 600;
-      font-size: 20px;
-      line-height: 30px;
-    }
-
-    .description {
-      font-weight: 500;
-      font-size: 13px;
-      line-height: 20px;
-    }
-  }
-
-  .total_time {
-    grid-area: E;
-    border-radius: $base-border-radius;
-    background-color: $blue-color;
-    box-shadow: $base-box-shadow;
-    padding: 12px 16px;
-
-    img {
-      padding: 5px 0;
-    }
-
-    .number {
-      font-weight: 600;
-      font-size: 16px;
-      line-height: 24px;
-    }
-
-    .description {
-      font-weight: 500;
-      font-size: 12px;
-      line-height: 18px;
-    }
-  }
-
-  .avg_time_answer {
-    grid-area: F;
-    border-radius: $base-border-radius;
-    background-color: $orange-color;
-    box-shadow: $base-box-shadow;
-    padding: 12px 16px;
-
-    img {
-      padding: 5px 0;
-    }
-
-    .number {
-      font-weight: 600;
-      font-size: 16px;
-      line-height: 24px;
-    }
-
-    .description {
-      font-weight: 500;
-      font-size: 12px;
-      line-height: 18px;
-    }
-  }
-
   .check_answers {
-    grid-area: V;
+    grid-area: Check;
   }
 
   .try_again {
-    grid-area: R;
+    grid-area: Again;
 
     img {
       padding-right: 10px;
