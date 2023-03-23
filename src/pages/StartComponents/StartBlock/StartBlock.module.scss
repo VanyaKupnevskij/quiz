@@ -1,0 +1,25 @@
+@import '../../../variables.scss';
+
+.root {
+  border-radius: 40px;
+  background-color: $gray-color;
+  padding: 20px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .limit_time {
+    border-radius: 8px;
+    border: 1px solid $white-color;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 12px;
+    text-align: center;
+    display: flex;
+    margin-right: 32px;
+
+    span {
+      margin-left: 5px;
+    }
+  }
+}

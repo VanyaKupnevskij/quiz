@@ -1,0 +1,22 @@
+@import '../../../variables.scss';
+
+.root {
+  margin-top: 15px;
+
+  .total_questions {
+    margin-top: 10px;
+    margin-bottom: 12px;
+  }
+
+  .total_time {
+    margin-bottom: 12px;
+  }
+
+  p {
+    opacity: 0.8;
+  }
+
+  p + p {
+    margin-top: 10px;
+  }
+}
