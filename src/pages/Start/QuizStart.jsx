@@ -1,7 +1,7 @@
-import Header from '../components/Header/Header';
-import Banner from './StartComponents/Banner/Banner';
-import StartBlock from './StartComponents/StartBlock/StartBlock';
-import DetailInfo from './StartComponents/DetailInfo/DetailInfo';
+import Header from '../../components/Header/Header';
+import Banner from '../StartComponents/Banner/Banner';
+import StartBlock from '../StartComponents/StartBlock/StartBlock';
+import DetailInfo from '../StartComponents/DetailInfo/DetailInfo';
 
 import styles from './QuizStart.module.scss';
 

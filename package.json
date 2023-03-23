@@ -2,7 +2,7 @@
   "name": "quiz",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://vanyakupnevskij.github.io/quiz",
+  "homepage": "https://vanyakupnevskij.github.io/quiz/list/",
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.3",
     "@testing-library/jest-dom": "^5.16.5",

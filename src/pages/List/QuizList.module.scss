@@ -1,0 +1,33 @@
+@import '../../variables.scss';
+
+.content {
+  display: flex;
+  flex-direction: column;
+  font-family: $second-font;
+  margin-top: 22px;
+  flex-grow: 1;
+  padding: 0 16px;
+
+  .inner_list {
+    padding: 0 16px 16px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+
+    &::-webkit-scrollbar-thumb {
+      background-color: rgba($back-color, 0.65);
+    }
+  }
+
+  .check_answers {
+    grid-area: Check;
+  }
+
+  .try_again {
+    grid-area: Again;
+
+    img {
+      padding-right: 10px;
+    }
+  }
+}

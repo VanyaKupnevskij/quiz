@@ -1,0 +1,28 @@
+@import '../../../variables.scss';
+
+.root {
+  grid-area: Info;
+  border-radius: $base-border-radius;
+  background-color: $back-color;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: $base-font;
+  padding: 16px 20px;
+  border: 1px solid $border-color;
+  box-shadow: $base-box-shadow;
+
+  h2 {
+    font-weight: 400;
+    font-size: 16px;
+  }
+
+  .category {
+    padding-top: 7px;
+
+    font-weight: 400;
+    font-size: 13px;
+    opacity: 0.5;
+  }
+}

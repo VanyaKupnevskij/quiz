@@ -9,7 +9,7 @@ function NextBlock() {
         <div className={styles.head}>Next Chapter</div>
         <div>Quadratic Equations</div>
       </div>
-      <Button isLink linkPath="/quiz">
+      <Button isLink linkPath="/quiz/list/">
         Go
       </Button>
     </div>

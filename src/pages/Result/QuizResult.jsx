@@ -1,20 +1,20 @@
-import Header from '../components/Header/Header';
-import { FullWidthButton } from '../components/Button/Button';
-import NextBlock from './ResultComponents/NextBlock/NextBlock';
-import ScoreBlock from './ResultComponents/ScoreBlock/ScoreBlock';
-import InfoQuiz from './ResultComponents/InfoQuiz/InfoQuiz';
-import InfoResult from './ResultComponents/InfoResult/InfoResult';
+import Header from '../../components/Header/Header';
+import { FullWidthButton } from '../../components/Button/Button';
+import NextBlock from '../ResultComponents/NextBlock/NextBlock';
+import ScoreBlock from '../ResultComponents/ScoreBlock/ScoreBlock';
+import InfoQuiz from '../ResultComponents/InfoQuiz/InfoQuiz';
+import InfoResult from '../ResultComponents/InfoResult/InfoResult';
 
 import classNames from 'classnames';
 import styles from './QuizResult.module.scss';
-import againImg from '../images/again.svg';
+import againImg from '../../images/again.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   selectAnswers,
   selectInfoQuiz,
   setComplete,
   clearAnswers,
-} from '../redux/slices/currentQuizSlice';
+} from '../../redux/slices/currentQuizSlice';
 
 function QuizResult() {
   const currentQuiz = useSelector(selectInfoQuiz);
