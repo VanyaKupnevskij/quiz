@@ -1,6 +1,19 @@
 @import '../../../variables.scss';
 
 .root {
-  opacity: 0.5;
   font-size: 16px;
+  margin: 22px 52px 0 52px;
+
+  * {
+    opacity: 0.5;
+  }
+
+  .subtitle {
+    cursor: pointer;
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
 }

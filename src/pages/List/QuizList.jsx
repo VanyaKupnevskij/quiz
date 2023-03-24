@@ -16,16 +16,51 @@ function QuizList() {
       <Header title={'Quizzes'} />
 
       <section className="main">
-        <BreadCrumbs />
+        <BreadCrumbs
+          items={[
+            { name: currentQuiz.subject, linkName: 'math' },
+            { name: currentQuiz.chapter, linkName: 'real_numbers' },
+          ]}
+        />
 
         <div className={styles.content}>
           <div className={classNames([styles.inner_list, 'inner'])}>
-            <CardQuiz />
-            <CardQuiz />
-            <CardQuiz />
-            <CardQuiz />
-            <CardQuiz />
-            <CardQuiz />
+            <CardQuiz
+              link={'/quiz/start'}
+              title={currentQuiz.title}
+              answeredQuestion={5}
+              totalQuestion={5}
+            />
+            <CardQuiz
+              link={'/quiz/start'}
+              title={currentQuiz.title}
+              answeredQuestion={3}
+              totalQuestion={7}
+            />
+            <CardQuiz
+              link={'/quiz/start'}
+              title={currentQuiz.title}
+              answeredQuestion={1}
+              totalQuestion={11}
+            />
+            <CardQuiz
+              link={'/quiz/start'}
+              title={currentQuiz.title}
+              answeredQuestion={0}
+              totalQuestion={6}
+            />
+            <CardQuiz
+              link={'/quiz/start'}
+              title={currentQuiz.title}
+              answeredQuestion={0}
+              totalQuestion={7}
+            />
+            <CardQuiz
+              link={'/quiz/start'}
+              title={currentQuiz.title}
+              answeredQuestion={0}
+              totalQuestion={5}
+            />
           </div>
         </div>
       </section>

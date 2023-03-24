@@ -22,7 +22,6 @@ function Question({ questionId = 0, isSubmit = false }) {
   const [timer, setTimer] = useState(0);
 
   useEffect(() => {
-    console.log(isCompleteQuiz);
     if (isCompleteQuiz) return;
 
     oldQuestionId = questionId;
