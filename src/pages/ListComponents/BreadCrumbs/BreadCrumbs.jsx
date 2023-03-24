@@ -4,7 +4,7 @@ import styles from './BreadCrumbs.module.scss';
 
 function BreadCrumbs({ items = [] }) {
   return (
-    <div className={styles.root}>
+    <nav className={styles.root}>
       {items.map((item, ind) => {
         let pathLink = '/' + item.linkName;
         return (
@@ -16,7 +16,7 @@ function BreadCrumbs({ items = [] }) {
           </React.Fragment>
         );
       })}
-    </div>
+    </nav>
   );
 }
 

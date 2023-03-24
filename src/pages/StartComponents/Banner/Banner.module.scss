@@ -25,7 +25,10 @@
     img {
       position: absolute;
       right: 0px;
-      top: 0px;
+      height: 100%;
+      max-width: 47%;
+      object-fit: cover;
+      object-position: center;
     }
   }
 
