@@ -1,28 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  infoQuiz: {
-    title: 'Title',
-    pathImage: '/',
-    subject: '-',
-    chapter: '-',
-    totalTime: '10',
-    description: '-',
-    questions: [
-      {
-        text: 'Question?',
-        correct: 0,
-        variants: [
-          {
-            text: 'Variant 1',
-          },
-          {
-            text: 'Variant 2',
-          },
-        ],
-      },
-    ],
-  },
+  infoQuiz: {},
   isComplete: false,
   answers: [],
 };
@@ -33,6 +12,8 @@ const currentQuizSlice = createSlice({
   reducers: {
     setQuiz(state, action) {
       state.infoQuiz = action.payload;
+      state.isComplete = false;
+      state.answers = new Array(0);
     },
     setAnswers(state, action) {
       state.answers = action.payload;
@@ -40,7 +21,8 @@ const currentQuizSlice = createSlice({
     setComplete(state, action) {
       state.isComplete = action.payload;
     },
-    clearAnswers(state, actoin) {
+    clearAnswers(state, action) {
+      state.isComplete = false;
       state.answers = new Array(0);
     },
   },

@@ -15,16 +15,16 @@ import {
   setComplete,
   clearAnswers,
 } from '../../redux/slices/currentQuizSlice';
+import { UserData } from '../../DBQuiz';
 
 function QuizResult() {
   const currentQuiz = useSelector(selectInfoQuiz);
   const answers = useSelector(selectAnswers);
   const dispatch = useDispatch();
 
-  let correctAnswers = 0;
-  for (let i = 0; i < answers.length; i++) {
-    if (answers[i].selectedIndex === currentQuiz.questions[i].correct) correctAnswers++;
-  }
+  let correctAnswers = UserData.completedQuizzes.find(
+    (quiz) => quiz.quizId === currentQuiz.id,
+  ).correctAnswers;
 
   function handleOnAgain() {
     dispatch(setComplete(false));

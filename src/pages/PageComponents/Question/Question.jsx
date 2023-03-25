@@ -9,6 +9,7 @@ import {
   setComplete,
   selectIsComplete,
 } from '../../../redux/slices/currentQuizSlice';
+import { UserData } from '../../../DBQuiz';
 import { useNavigate } from 'react-router-dom';
 
 let oldQuestionId = 0;
@@ -46,6 +47,26 @@ function Question({ questionId = 0, isSubmit = false }) {
     if (isSubmit) {
       recordTime();
       dispatch(setComplete(true));
+
+      let correctAnswers = 0;
+      for (let i = 0; i < answers.length; i++) {
+        if (answers[i].selectedIndex === currentQuiz.questions[i].correct) correctAnswers++;
+      }
+      const completeQuiz = {
+        quizId: currentQuiz.id,
+        correctAnswers: correctAnswers,
+        answers: [...answers],
+      };
+
+      let finded = false;
+      for (let quiz in UserData.completedQuizzes) {
+        if (UserData.completedQuizzes[quiz].quizId === currentQuiz.id) {
+          UserData.completedQuizzes[quiz] = completeQuiz;
+          finded = true;
+          break;
+        }
+      }
+      if (finded === false) UserData.completedQuizzes.push(completeQuiz);
       navigate('/quiz/result');
     }
   }, [isSubmit]);

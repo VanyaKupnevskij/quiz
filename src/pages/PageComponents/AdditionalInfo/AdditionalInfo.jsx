@@ -4,10 +4,8 @@ import timerImg from '../../../images/timer.svg';
 import { useSelector } from 'react-redux';
 import { selectInfoQuiz, selectIsComplete } from '../../../redux/slices/currentQuizSlice';
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 
-function AdditionalInfo() {
-  const navigate = useNavigate();
+function AdditionalInfo({ setIsSubmit }) {
   const currentQuiz = useSelector(selectInfoQuiz);
   const isCompleteQuiz = useSelector(selectIsComplete);
 
@@ -22,7 +20,7 @@ function AdditionalInfo() {
     if (isCompleteQuiz) return;
 
     limitTimer > 0 && setTimeout(() => setLimitTimer(limitTimer - 1), 1000);
-    if (limitTimer <= 0) navigate('/quiz/result');
+    if (limitTimer <= 0) setIsSubmit(true);
   }, [limitTimer]);
 
   return (

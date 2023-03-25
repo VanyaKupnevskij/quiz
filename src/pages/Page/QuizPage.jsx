@@ -21,7 +21,7 @@ function QuizPage() {
         <SubmitButton handleClick={handleSubmit}>Submit</SubmitButton>
       </Header>
       <section className="main">
-        <AdditionalInfo />
+        <AdditionalInfo setIsSubmit={setIsSubmit} />
 
         <div className={styles.content}>
           <div className="inner">
