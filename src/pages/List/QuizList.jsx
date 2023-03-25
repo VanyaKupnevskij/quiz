@@ -39,7 +39,7 @@ function QuizList() {
 
   return (
     <>
-      <Header title={'Quizzes'} />
+      <Header title={'Quizzes'} hasBackButton={false} />
 
       <section className="main">
         <BreadCrumbs items={breadCrumbsItems} />
