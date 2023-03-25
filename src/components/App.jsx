@@ -9,7 +9,9 @@ function App() {
     <div className="container">
       <Routes>
         <Route index exact path="quiz/list/" element={<QuizList />} />
-        <Route strict exact path="quiz/start/" element={<QuizStart />} />
+        <Route path="quiz/list/subject/:subjectParam" element={<QuizList />} />
+        <Route path="quiz/list/chapter/:chapterParam" element={<QuizList />} />
+        <Route path="quiz/start/:quizId" element={<QuizStart />} />
         <Route strict exact path="quiz/page/" element={<QuizPage />} />
         <Route strict exact path="quiz/result/" element={<QuizResult />} />
       </Routes>

@@ -1,3 +1,28 @@
+export const UserData = {
+  name: 'name',
+  password: '1111',
+  completedQuizzes: [],
+};
+
+export const Subjects = [
+  {
+    id: 0,
+    title: 'Computer Programming',
+    link: 'computer_programming',
+    chaptersId: [0],
+  },
+];
+
+export const Сhapters = [
+  {
+    id: 0,
+    title: 'C Programming',
+    link: 'c_programming',
+    subjectId: 0,
+    quizzesId: [0, 1],
+  },
+];
+
 export const Quizes = [
   {
     id: 0,

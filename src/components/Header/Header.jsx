@@ -1,13 +1,15 @@
 import styles from './Header.module.scss';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import backImg from '../../images/back.svg';
 
-function Header({ backLink = '/quiz/list/', title, children }) {
+function Header({ title, children }) {
+  const navigate = useNavigate();
+
   return (
     <header className={styles.header}>
-      <Link to={backLink} className={styles.back_link}>
+      <button onClick={() => navigate(-1)} className={styles.back_link}>
         <img src={backImg} alt="back" />
-      </Link>
+      </button>
       <h1 className={styles.title}>{title}</h1>
       {children}
     </header>
