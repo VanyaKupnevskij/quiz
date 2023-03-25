@@ -9,17 +9,11 @@ import classNames from 'classnames';
 import styles from './QuizResult.module.scss';
 import againImg from '../../images/again.svg';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  selectAnswers,
-  selectInfoQuiz,
-  setComplete,
-  clearAnswers,
-} from '../../redux/slices/currentQuizSlice';
+import { selectInfoQuiz, setComplete, clearAnswers } from '../../redux/slices/currentQuizSlice';
 import { UserData } from '../../DBQuiz';
 
 function QuizResult() {
   const currentQuiz = useSelector(selectInfoQuiz);
-  const answers = useSelector(selectAnswers);
   const dispatch = useDispatch();
 
   let correctAnswers = UserData.completedQuizzes.find(

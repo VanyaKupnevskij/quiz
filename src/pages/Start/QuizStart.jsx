@@ -4,8 +4,18 @@ import StartBlock from '../StartComponents/StartBlock/StartBlock';
 import DetailInfo from '../StartComponents/DetailInfo/DetailInfo';
 
 import styles from './QuizStart.module.scss';
+import { setQuiz } from '../../redux/slices/currentQuizSlice';
+import { useDispatch } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { Quizes } from '../../DBQuiz';
 
 function QuizStart() {
+  const dispatch = useDispatch();
+  const { quizId } = useParams();
+  console.log(quizId);
+  console.log(Quizes.find((quiz) => quiz.id === +quizId));
+  dispatch(setQuiz(Quizes.find((quiz) => quiz.id === +quizId)));
+
   return (
     <>
       <Header title={'Start Quiz'} />
