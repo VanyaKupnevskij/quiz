@@ -1,5 +1,5 @@
 import Header from '../../components/Header/Header';
-import { SubmitButton } from '../../components/Button/Button';
+import { HeaderButton } from '../../components/Button/Button';
 import Question from '../PageComponents/Question/Question';
 import Navigate from '../PageComponents/Navigate/Navigate';
 import AdditionalInfo from '../PageComponents/AdditionalInfo/AdditionalInfo';
@@ -18,7 +18,7 @@ function QuizPage() {
   return (
     <>
       <Header title={'Quiz'}>
-        <SubmitButton handleClick={handleSubmit}>Submit</SubmitButton>
+        <HeaderButton handleClick={handleSubmit}>Submit</HeaderButton>
       </Header>
       <section className="main">
         <AdditionalInfo setIsSubmit={setIsSubmit} />

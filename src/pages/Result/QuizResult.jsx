@@ -1,5 +1,5 @@
 import Header from '../../components/Header/Header';
-import { FullWidthButton } from '../../components/Button/Button';
+import { FullWidthButton, ImageButton } from '../../components/Button/Button';
 import NextBlock from '../ResultComponents/NextBlock/NextBlock';
 import ScoreBlock from '../ResultComponents/ScoreBlock/ScoreBlock';
 import InfoQuiz from '../ResultComponents/InfoQuiz/InfoQuiz';
@@ -41,13 +41,13 @@ function QuizResult() {
             <FullWidthButton isLink linkPath="/quiz/page" className={styles.check_answers}>
               Check Answers
             </FullWidthButton>
-            <FullWidthButton
+            <ImageButton
               isLink
               linkPath="/quiz/page"
               className={styles.try_again}
               handleClick={handleOnAgain}>
               <img src={againImg} alt="again" /> Try Quiz Again
-            </FullWidthButton>
+            </ImageButton>
           </div>
         </div>
 

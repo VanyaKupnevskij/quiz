@@ -1,6 +1,7 @@
 import Header from '../../components/Header/Header';
 import CardQuiz from '../ListComponents/CardQuiz/CardQuiz';
 import BreadCrumbs from '../ListComponents/BreadCrumbs/BreadCrumbs';
+import { HeaderButton } from '../../components/Button/Button';
 
 import classNames from 'classnames';
 import styles from './QuizList.module.scss';
@@ -39,7 +40,11 @@ function QuizList() {
 
   return (
     <>
-      <Header title={'Quizzes'} hasBackButton={false} />
+      <Header title={'Quizzes'} hasBackButton={false}>
+        <HeaderButton isLink linkPath="/quiz/login">
+          Log in
+        </HeaderButton>
+      </Header>
 
       <section className="main">
         <BreadCrumbs items={breadCrumbsItems} />

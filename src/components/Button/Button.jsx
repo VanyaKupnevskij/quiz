@@ -23,7 +23,7 @@ const GrayButton = styled(Button)`
   color: #bdbdbd;
 `;
 
-const SubmitButton = styled(Button)`
+const HeaderButton = styled(Button)`
   background-color: ${COLORS.gray};
   border: 2px solid ${COLORS.blue};
   font-family: ${BASE_FONT};
@@ -35,16 +35,17 @@ const FullWidthButton = styled(Button)`
   width: 100%;
 `;
 
-const AgainButton = styled(FullWidthButton)`
+const ImageButton = styled(FullWidthButton)`
   display: flex;
   justify-content: center;
   align-items: center;
 
   img {
     margin-right: 10px;
+    margin-left: 10px;
   }
 `;
 
-export { GrayButton, SubmitButton, FullWidthButton, AgainButton };
+export { GrayButton, HeaderButton, FullWidthButton, ImageButton };
 
 export default Button;

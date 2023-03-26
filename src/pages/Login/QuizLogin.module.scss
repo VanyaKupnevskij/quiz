@@ -1,0 +1,14 @@
+@import '../../variables.scss';
+
+.content {
+  border: 1px solid $border-color;
+
+  background-color: $back-color;
+  border-radius: 40px;
+  padding: 32px;
+  font-family: $second-font;
+  margin-top: 22px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
