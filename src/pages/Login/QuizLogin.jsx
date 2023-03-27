@@ -9,7 +9,7 @@ import classNames from 'classnames';
 function QuizLogin() {
   return (
     <>
-      <Header title={'Log in'} />
+      <Header title={'Log in'} linkBack="/quiz/list/" />
 
       <section className="main">
         <div className={styles.content}>

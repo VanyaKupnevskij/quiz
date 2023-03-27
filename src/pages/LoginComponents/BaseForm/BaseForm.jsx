@@ -6,12 +6,6 @@ import styles from './BaseForm.module.scss';
 import styled from 'styled-components';
 import loginImage from '../../../images/login.svg';
 
-const InputSubmit = styled(ImageButton)`
-  max-width: 340px;
-  align-self: center;
-  margin-top: 32px;
-`;
-
 function BaseForm({ isLogin = true }) {
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
@@ -21,17 +15,20 @@ function BaseForm({ isLogin = true }) {
   function handleChangeName(event) {
     if (event.target.value === 'admin') setNameWrong(true);
     else setNameWrong(false);
+
     setName(event.target.value);
   }
 
   function handleChangePassword(event) {
     if (event.target.value === '12345') setPasswordWrong(true);
     else setPasswordWrong(false);
+
     setPassword(event.target.value);
   }
 
   function handleSubmit(event) {
     alert(name + ': ' + password);
+
     event.preventDefault();
   }
 
@@ -67,5 +64,11 @@ function BaseForm({ isLogin = true }) {
     </form>
   );
 }
+
+const InputSubmit = styled(ImageButton)`
+  max-width: 340px;
+  align-self: center;
+  margin-top: 32px;
+`;
 
 export default BaseForm;

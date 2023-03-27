@@ -27,7 +27,7 @@ function QuizResult() {
 
   return (
     <>
-      <Header title={'Quiz Result'} />
+      <Header title={'Quiz Result'} linkBack="/quiz/list/" />
 
       <section className="main">
         <div className={styles.content}>

@@ -18,7 +18,7 @@ function QuizStart() {
 
   return (
     <>
-      <Header title={'Start Quiz'} />
+      <Header title={'Start Quiz'} linkBack="/quiz/list/" />
       <section className="main">
         <div className={styles.content}>
           <div className="inner">

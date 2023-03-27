@@ -6,8 +6,11 @@ import AdditionalInfo from '../PageComponents/AdditionalInfo/AdditionalInfo';
 
 import styles from './QuizPage.module.scss';
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { selectInfoQuiz } from '../../redux/slices/currentQuizSlice';
 
 function QuizPage() {
+  const currentQuiz = useSelector(selectInfoQuiz);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [isSubmit, setIsSubmit] = useState(false);
 
@@ -17,7 +20,7 @@ function QuizPage() {
 
   return (
     <>
-      <Header title={'Quiz'}>
+      <Header title={'Quiz'} linkBack={'/quiz/start/' + currentQuiz.id}>
         <HeaderButton handleClick={handleSubmit}>Submit</HeaderButton>
       </Header>
       <section className="main">

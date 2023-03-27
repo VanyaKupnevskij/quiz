@@ -1,15 +1,22 @@
 import styles from './Header.module.scss';
 import { useNavigate } from 'react-router-dom';
-import backImg from '../../images/back.svg';
+import backImageSrc from '../../images/back.svg';
+import homeImageSrc from '../../images/home.svg';
 
-function Header({ hasBackButton = true, title, children }) {
+function Header({ hasBackButton = true, linkBack, title, children }) {
   const navigate = useNavigate();
+  const backImage = linkBack?.includes('/quiz/list') ? homeImageSrc : backImageSrc;
+
+  function handleClickBack() {
+    if (linkBack) navigate(linkBack);
+    else navigate(-1);
+  }
 
   return (
     <header className={styles.header}>
       {hasBackButton && (
-        <button onClick={() => navigate(-1)} className={styles.back_link}>
-          <img src={backImg} alt="back" />
+        <button onClick={handleClickBack} className={styles.back_link}>
+          <img src={backImage} alt="back" />
         </button>
       )}
       <h1 className={styles.title}>{title}</h1>
