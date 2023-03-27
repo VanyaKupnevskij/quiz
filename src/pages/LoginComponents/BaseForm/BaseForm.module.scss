@@ -1,0 +1,80 @@
+@import '../../../variables.scss';
+
+.root {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 450px;
+
+  .wrong_message {
+    align-self: center;
+    font-weight: 400;
+    font-size: 14px;
+    font-family: $base-font;
+    color: $red-color;
+  }
+
+  label {
+    display: flex;
+    flex-direction: column;
+    font-weight: 500;
+    font-size: 17px;
+    margin-bottom: 32px;
+
+    span {
+      margin-left: 20px;
+      margin-bottom: 11px;
+      font-size: 14px;
+      font-weight: 400;
+      font-family: $base-font;
+      opacity: 0.8;
+    }
+
+    input {
+      font-family: $second-font;
+      line-height: 21px;
+      font-weight: 400;
+      font-size: 14px;
+      background-color: $gray-color;
+      padding: 14px 20px;
+      width: 100%;
+      outline: none;
+      border-radius: $base-border-radius;
+      border: 1px solid $gray-color;
+      transition: border 0.2s;
+
+      &:focus {
+        border: 1px solid $blue-color;
+      }
+
+      &::placeholder {
+        font-family: $second-font;
+        line-height: 21px;
+        font-weight: 400;
+        font-size: 14px;
+      }
+    }
+    .wrong {
+      border: 1px solid $red-color !important;
+    }
+
+    .password_input {
+      position: relative;
+    }
+
+    .visible_button {
+      position: absolute;
+      right: 20px;
+      bottom: 0px;
+      top: 0px;
+      margin: auto;
+      width: 27px;
+      opacity: 0.5;
+
+      transition: opacity 0.2s;
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}

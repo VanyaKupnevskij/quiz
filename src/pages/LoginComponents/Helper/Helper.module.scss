@@ -1,0 +1,15 @@
+@import '../../../variables.scss';
+
+.root {
+  font-weight: 400;
+  font-size: 15px;
+
+  span {
+    opacity: 0.5;
+    margin-right: 10px;
+  }
+
+  a {
+    color: $blue-color;
+  }
+}

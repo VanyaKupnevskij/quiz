@@ -4,6 +4,7 @@ import QuizPage from '../pages/Page/QuizPage';
 import QuizResult from '../pages/Result/QuizResult';
 import QuizList from '../pages/List/QuizList';
 import QuizLogin from '../pages/Login/QuizLogin';
+import QuizSignUp from '../pages/SignUp/QuizSignUp';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route strict exact path="quiz/page/" element={<QuizPage />} />
         <Route strict exact path="quiz/result/" element={<QuizResult />} />
         <Route strict exact path="quiz/login/" element={<QuizLogin />} />
+        <Route strict exact path="quiz/signup/" element={<QuizSignUp />} />
       </Routes>
     </div>
   );

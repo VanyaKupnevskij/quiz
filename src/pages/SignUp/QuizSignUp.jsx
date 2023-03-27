@@ -3,20 +3,23 @@ import BaseForm from '../LoginComponents/BaseForm/BaseForm';
 import Title from '../LoginComponents/Title/Title';
 import Helper from '../LoginComponents/Helper/Helper';
 
-import styles from './QuizLogin.module.scss';
+import styles from './QuizSignUp.module.scss';
 import classNames from 'classnames';
 
-function QuizLogin() {
+function QuizSignUp() {
   return (
     <>
-      <Header title={'Log in'} />
+      <Header title={'Sign up'} />
 
       <section className="main">
         <div className={styles.content}>
           <div className={classNames(['inner', styles.innerLogin])}>
-            <Title headText="Welcome back!" additionalText="Please log in to your account" />
-            <BaseForm isLogin={true} />
-            <Helper text="Don't have an account?" linkPath="/quiz/signup" linkText="Sign up" />
+            <Title
+              headText="Create new account"
+              additionalText="Please fill in the form to continue"
+            />
+            <BaseForm isLogin={false} />
+            <Helper text="Have an account?" linkPath="/quiz/login" linkText="Log in" />
           </div>
         </div>
       </section>
@@ -24,4 +27,4 @@ function QuizLogin() {
   );
 }
 
-export default QuizLogin;
+export default QuizSignUp;
